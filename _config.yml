@@ -5,7 +5,7 @@ highlighter:      rouge
 # Setup
 title:            IrisFor
 tagline:          'Blog Daily'
-description:      'The <a href="http://hyde.getpoole.com" target="_blank">Hyde</a> theme for <a href="http://jekyllrb.com" target="_blank">Jekyll</a>, refreshed.'
+description:      '年更勿扰。'
 url:              https://lanitaleon.github.io
 baseurl:          '/somnus'
                   # the optional subpath of your site, e.g. "/blog"
