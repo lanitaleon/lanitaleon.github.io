@@ -3,10 +3,10 @@
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-theme-hydeout"
   spec.version       = "4.0.0"
-  spec.authors       = ["Iris For"]
+  spec.authors       = ["Somnus's Blog"]
   spec.email         = ["somnusfor@gmail.com"]
 
-  spec.summary       = %q{The Hyde theme for Jekyll, refreshed.}
+  spec.summary       = "年更勿扰。"
   spec.homepage      = "https://lanitaleon.github.io/somnus/"
   spec.license       = "MIT"
 
