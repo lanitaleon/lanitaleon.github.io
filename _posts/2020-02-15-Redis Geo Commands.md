@@ -1,4 +1,9 @@
-## Redis Geo Commands
+---
+layout: post
+title: RedisGeoCommands
+tags:
+  - redis
+---
 
 Redis可存储地理空间位置，包含经度、纬度、名称，有如下相关指令。
 
