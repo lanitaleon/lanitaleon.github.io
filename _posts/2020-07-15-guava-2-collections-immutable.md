@@ -1,6 +1,6 @@
 ---
 layout: post
-title: guava(2.1) collections immutable
+title: guava(2) immutable collections
 tags:
   - guava
 ---
