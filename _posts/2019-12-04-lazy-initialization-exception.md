@@ -1,3 +1,8 @@
+---
+layout: post
+title: LazyInitializationException
+---
+
 ## LazyInitializationException
 
 参考博客：

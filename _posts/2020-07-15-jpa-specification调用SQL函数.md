@@ -1,3 +1,8 @@
+---
+layout: post
+title: JPA Specification调用SQL函数
+---
+
 #### JPA Specification 调用SQL函数
 
 通过CriteriaBuilder的function方法。

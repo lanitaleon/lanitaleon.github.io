@@ -1,3 +1,8 @@
+---
+layout: post
+title: JPA FlushMode
+---
+
 #### 一、问题描述
 
 简化代码模型如下 

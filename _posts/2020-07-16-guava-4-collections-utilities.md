@@ -1,3 +1,8 @@
+---
+layout: post
+title: Guava(1) collection utilities
+---
+
 ### 3.Collection Utilities
 
 据说是guava最受欢迎的部分，基于Collections延伸的集合静态处理方法。

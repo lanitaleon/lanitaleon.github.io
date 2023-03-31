@@ -1,3 +1,8 @@
+---
+layout: post
+title: Guava(2) immutable collections
+---
+
 ### 1.Immutable Collections
 
 不可变集合，特点：

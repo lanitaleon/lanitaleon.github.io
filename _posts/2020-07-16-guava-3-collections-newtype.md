@@ -1,3 +1,8 @@
+---
+layout: post
+title: Guava(3) collection types
+---
+
 ### 2.New Collection Types
 
 guava定义了一些JDK中没有的，但是比较常用的集合结构。

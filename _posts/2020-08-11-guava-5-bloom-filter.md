@@ -1,3 +1,8 @@
+---
+layout: post
+title: Guava(5) bloom filter
+---
+
 #### 1.简介
 
 [布隆过滤器]([https://zh.wikipedia.org/wiki/%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8](https://zh.wikipedia.org/wiki/布隆过滤器))（Bloom Filter）用于检查一个元素是否存在一个集合中。

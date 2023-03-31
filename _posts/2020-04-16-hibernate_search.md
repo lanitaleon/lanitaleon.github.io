@@ -1,3 +1,9 @@
+---
+layout: post
+title: Hibernate-Search无法生成子类索引
+---
+
+
 官方文档：
 
 https://docs.jboss.org/hibernate/search/6.0/reference/en-US/html_single/#gettingstarted-dependencies
