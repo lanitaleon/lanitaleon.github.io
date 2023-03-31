@@ -1,10 +1,3 @@
----
-layout: post
-title: guava(2) immutable collections
-tags:
-  - guava
----
-
 ### 1.Immutable Collections
 
 不可变集合，特点：

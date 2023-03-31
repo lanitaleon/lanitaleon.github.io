@@ -1,10 +1,3 @@
----
-layout: post
-title: guava(1) basic utils
-tags:
-  - guava
----
-
 1.null
 
 开销小，速度快，在对象数组中不可避免。
