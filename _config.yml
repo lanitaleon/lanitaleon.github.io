@@ -61,4 +61,4 @@ texture:
   social_links:
     twitter: IrisFor
     github:  leon
-  style: [yellow|red|black|blue|green|purple]
+  style: purple
