@@ -52,3 +52,13 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+texture:
+  title: meaningless
+  tagline: Developer. Designer
+  date_format: "%b %-d, %Y"
+
+  social_links:
+    twitter: IrisFor
+    github:  leon
+  style: [yellow|red|black|blue|green|purple]
