@@ -1,25 +1,25 @@
 ---
 layout: post
-title: Guava(1) collection utilities
+title: Guava(4) collection utilities
 ---
 
 ### 3.Collection Utilities
 
 据说是guava最受欢迎的部分，基于Collections延伸的集合静态处理方法。
 
-| Interface                                                    | JDK or Guava? | Corresponding Guava utility class                            |
-| ------------------------------------------------------------ | ------------- | ------------------------------------------------------------ |
-| Collection                                                | JDK           | [Collections2](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Collections2.html) |
-| List                                                       | JDK           | [Lists](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Lists.html) |
-| Set                                                        | JDK           | [Sets](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Sets.html) |
-| SortedSet                                                 | JDK           | [Sets](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Sets.html) |
-| Map                                                        | JDK           | [Maps](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Maps.html) |
-| SortedMap                                                  | JDK           | [Maps](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Maps.html) |
-| Queue                                                      | JDK           | [Queues](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Queues.html) |
-| [Multiset](https://github.com/google/guava/wiki/NewCollectionTypesExplained#Multiset) | Guava         | [Multisets](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multisets.html) |
-| [Multimap](https://github.com/google/guava/wiki/NewCollectionTypesExplained#Multimap) | Guava         | [Multimaps](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multimaps.html) |
-| [BiMap](https://github.com/google/guava/wiki/NewCollectionTypesExplained#BiMap) | Guava         | [Maps](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Maps.html) |
-| [Table](https://github.com/google/guava/wiki/NewCollectionTypesExplained#Table) | Guava         | [Tables](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Tables.html) |
+| Interface                                                                             | JDK or Guava? | Corresponding Guava utility class                                                                                    |
+| ------------------------------------------------------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Collection                                                                            | JDK           | [Collections2](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Collections2.html) |
+| List                                                                                  | JDK           | [Lists](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Lists.html)               |
+| Set                                                                                   | JDK           | [Sets](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Sets.html)                 |
+| SortedSet                                                                             | JDK           | [Sets](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Sets.html)                 |
+| Map                                                                                   | JDK           | [Maps](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Maps.html)                 |
+| SortedMap                                                                             | JDK           | [Maps](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Maps.html)                 |
+| Queue                                                                                 | JDK           | [Queues](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Queues.html)             |
+| [Multiset](https://github.com/google/guava/wiki/NewCollectionTypesExplained#Multiset) | Guava         | [Multisets](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multisets.html)       |
+| [Multimap](https://github.com/google/guava/wiki/NewCollectionTypesExplained#Multimap) | Guava         | [Multimaps](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multimaps.html)       |
+| [BiMap](https://github.com/google/guava/wiki/NewCollectionTypesExplained#BiMap)       | Guava         | [Maps](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Maps.html)                 |
+| [Table](https://github.com/google/guava/wiki/NewCollectionTypesExplained#Table)       | Guava         | [Tables](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Tables.html)             |
 
 JDK中的常用集合以及对应的guava中的工具类如上所示。
 
@@ -212,11 +212,11 @@ Multimap<Integer, String> inverse = Multimaps.invertFrom(multimap, HashMultimap.
 
 warppers，提供了默认的初始化封装实现。
 
-| Multimap type       | Unmodifiable                                                 | Synchronized                                                 | Custom                                                       |
-| ------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Multimap          | [unmodifiableMultimap](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multimaps.html#unmodifiableMultimap-com.google.common.collect.Multimap-) | [synchronizedMultimap](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multimaps.html#synchronizedMultimap-com.google.common.collect.Multimap-) | [newMultimap](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multimaps.html#newMultimap-java.util.Map-com.google.common.base.Supplier-) |
-| ListMultimap      | [unmodifiableListMultimap](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multimaps.html#unmodifiableListMultimap-com.google.common.collect.ListMultimap-) | [synchronizedListMultimap](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multimaps.html#synchronizedListMultimap-com.google.common.collect.ListMultimap-) | [newListMultimap](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multimaps.html#newListMultimap-java.util.Map-com.google.common.base.Supplier-) |
-| SetMultimap       | [unmodifiableSetMultimap](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multimaps.html#unmodifiableSetMultimap-com.google.common.collect.SetMultimap-) | [synchronizedSetMultimap](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multimaps.html#synchronizedSetMultimap-com.google.common.collect.SetMultimap-) | [newSetMultimap](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multimaps.html#newSetMultimap-java.util.Map-com.google.common.base.Supplier-) |
+| Multimap type     | Unmodifiable                                                                                                                                                                                                  | Synchronized                                                                                                                                                                                                  | Custom                                                                                                                                                                                        |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Multimap          | [unmodifiableMultimap](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multimaps.html#unmodifiableMultimap-com.google.common.collect.Multimap-)                            | [synchronizedMultimap](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multimaps.html#synchronizedMultimap-com.google.common.collect.Multimap-)                            | [newMultimap](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multimaps.html#newMultimap-java.util.Map-com.google.common.base.Supplier-)                   |
+| ListMultimap      | [unmodifiableListMultimap](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multimaps.html#unmodifiableListMultimap-com.google.common.collect.ListMultimap-)                | [synchronizedListMultimap](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multimaps.html#synchronizedListMultimap-com.google.common.collect.ListMultimap-)                | [newListMultimap](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multimaps.html#newListMultimap-java.util.Map-com.google.common.base.Supplier-)           |
+| SetMultimap       | [unmodifiableSetMultimap](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multimaps.html#unmodifiableSetMultimap-com.google.common.collect.SetMultimap-)                   | [synchronizedSetMultimap](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multimaps.html#synchronizedSetMultimap-com.google.common.collect.SetMultimap-)                   | [newSetMultimap](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multimaps.html#newSetMultimap-java.util.Map-com.google.common.base.Supplier-)             |
 | SortedSetMultimap | [unmodifiableSortedSetMultimap](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multimaps.html#unmodifiableSortedSetMultimap-com.google.common.collect.SortedSetMultimap-) | [synchronizedSortedSetMultimap](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multimaps.html#synchronizedSortedSetMultimap-com.google.common.collect.SortedSetMultimap-) | [newSortedSetMultimap](http://google.github.io/guava/releases/snapshot/api/docs/com/google/common/collect/Multimaps.html#newSortedSetMultimap-java.util.Map-com.google.common.base.Supplier-) |
 
 一个例子，支持传入Supplier。
@@ -237,13 +237,7 @@ ListMultimap<String, Integer> myMultimap = Multimaps.newListMultimap(
 
 第二个参数是Collection的构造器，但是Multimap.get(key)的返回类型并不是Supplier的类型，是一个封装的List。
 
-
-
-
-
 3.8Tables
-
-
 
 4.Extension Utilities
 
