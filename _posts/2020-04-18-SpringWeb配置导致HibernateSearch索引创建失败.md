@@ -1,3 +1,8 @@
+---
+layout: post
+title: Hibernate-Search无法获取ORM session
+---
+
 起因是引入hibernate-search后，通过massIndexes生成索引时获取ORM session失败。
 
 ```java
