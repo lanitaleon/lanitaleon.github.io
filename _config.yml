@@ -54,11 +54,11 @@ plugins:
 #   - vendor/ruby/
 
 texture:
-  title: meaningless
-  tagline: Developer. Designer
+  title: 三分钟热度有三分钟收获
+  tagline: Java. Spring. Xxl-Job. JPA.
   date_format: "%b %-d, %Y"
 
   social_links:
-    twitter: IrisFor
-    github:  leon
+    twitter: https://twitter.com/For_Iris_Somnus
+    github:  https://github.com/lanitaleon
   style: purple
