@@ -59,6 +59,6 @@ texture:
   date_format: "%b %-d, %Y"
 
   social_links:
-    twitter: https://twitter.com/For_Iris_Somnus
-    github:  https://github.com/lanitaleon
+    twitter: For_Iris_Somnus
+    github:  lanitaleon
   style: purple
