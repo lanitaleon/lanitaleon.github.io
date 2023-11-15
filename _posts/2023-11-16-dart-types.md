@@ -1,0 +1,451 @@
+# Built-in types
+
+Numbers, String, Booleans, Records, Lists, Sets, Maps, Runes, Symbols, null;
+
+Object, Enum, Future, Iterable, Never, dynamic, void;
+
+## Numbers
+
+int, double, 
+
+```dart
+var x = 1;
+var hex = 0xDEADBEEF;
+
+var y = 1.1;
+var exponents = 1.42e5;
+
+num x = 1; // x can have both int and double values
+x += 2.5;
+
+double z = 1; // Equivalent to double z = 1.0.
+```
+
+transfer
+
+```dart
+// String -> int
+var one = int.parse('1');
+assert(one == 1);
+
+// String -> double
+var onePointOne = double.parse('1.1');
+assert(onePointOne == 1.1);
+
+// int -> String
+String oneAsString = 1.toString();
+assert(oneAsString == '1');
+
+// double -> String
+String piAsString = 3.14159.toStringAsFixed(2);
+assert(piAsString == '3.14');
+```
+
+位运算
+
+```dart
+assert((3 << 1) == 6); // 0011 << 1 == 0110
+assert((3 | 4) == 7); // 0011 | 0100 == 0111
+assert((3 & 4) == 0); // 0011 & 0100 == 0000
+```
+
+more information 没看
+
+https://dart.dev/guides/language/numbers
+
+## Strings
+
+支持 ${expression}
+
+```dart
+var s = '郝婧怡';
+
+assert('郭爽和$s在16号公演表演双人UNIT' == '郭爽和郝婧怡在16号公演表演双人UNIT');
+
+var name = 'sawakoo';    
+assert('郭爽的小红书ID是${name.toUpperCase()}!' == '郭爽的小红书ID是SAWAKOO!');
+```
+
+concat
+
+```dart
+var s1 = 'String '
+    'concatenation'
+    " works even over line breaks.";
+assert(s1 ==
+    'String concatenation works even over '
+        'line breaks.');
+
+var s2 = 'The + operator ' + 'works, as well.';
+assert(s2 == 'The + operator works, as well.');
+```
+
+multi-line
+
+```dart
+var s1 = '''
+You can create
+multi-line strings like this one.
+''';
+
+var s2 = """This is also a
+multi-line string.""";
+```
+
+特殊字符按文本处理
+
+```dart
+var s = r'In a raw string, not even \n gets special treatment.';
+```
+
+## Runes and grapheme clusters
+
+In Dart, runes expose the Unicode code points of a string. 
+
+a Dart string is a sequence of UTF-16 code units.
+
+```dart
+import 'package:characters/characters.dart';
+
+void main() {
+  var hi = 'Hi 🇩🇰';
+  print(hi);
+  print('The end of the string: ${hi.substring(hi.length - 1)}');
+  print('The last character: ${hi.characters.last}');
+}
+```
+
+output
+
+```shell
+dart run bin/main.dart
+
+Hi 🇩🇰
+The end of the string: ???
+The last character: 🇩🇰
+```
+
+## Symbols
+
+A Symbol object represents an operator or identifier declared in a Dart program. 
+
+在反射机制中读取包、类的内容;
+
+https://febers.github.io/Dart-%E5%8F%8D%E5%B0%84%E5%88%9D%E8%AF%86/
+
+# Records
+
+跟 Delphi 中的 record 差不多;
+
+Records are an anonymous, immutable, aggregate type.
+
+```dart
+var record = ('first', a: 2, b: true, 'last');
+
+(int, int) swap((int, int) record) {
+  var (a, b) = record;
+  return (b, a);
+}
+
+// Record type annotation in a variable declaration:
+(String, int) record;
+
+// Initialize it with a record expression:
+record = ('A string', 123);
+
+// Record type annotation in a variable declaration:
+({int a, bool b}) record;
+
+// Initialize it with a record expression:
+record = (a: 123, b: true);
+```
+
+字段名是类型的一部分;
+
+```dart
+({int a, int b}) recordAB = (a: 1, b: 2);
+({int x, int y}) recordXY = (x: 3, y: 4);
+
+// Compile error! These records don't have the same type.
+// recordAB = recordXY;
+
+(int a, int b) recordAB = (1, 2);
+(int x, int y) recordXY = (3, 4);
+
+recordAB = recordXY; // OK.
+```
+
+Record fields are accessible through built-in getters. Records are immutable, so fields do not have setters.
+
+```dart
+var record = ('first', a: 2, b: true, 'last');
+
+print(record.$1); // Prints 'first'
+print(record.a); // Prints 2
+print(record.b); // Prints true
+print(record.$2); // Prints 'last'
+```
+
+type
+
+```dart
+(num, Object) pair = (42, 'a');
+
+var first = pair.$1; // Static type `num`, runtime type `int`.
+var second = pair.$2; // Static type `Object`, runtime type `String`.
+
+(int x, int y, int z) point = (1, 2, 3);
+(int r, int g, int b) color = (1, 2, 3);
+print(point == color); // Prints 'true'.
+
+({int x, int y, int z}) point = (x: 1, y: 2, z: 3);
+({int r, int g, int b}) color = (r: 1, g: 2, b: 3);
+print(point == color); // Prints 'false'. Lint: Equals on unrelated types.
+```
+
+用来返回多个类型不同的值，比创建一个dto简洁，如果用List/Map就存在raw uses；
+
+```dart
+// Returns multiple values in a record:
+(String, int) userInfo(Map<String, dynamic> json) {
+  return (json['name'] as String, json['age'] as int);
+}
+
+final json = <String, dynamic>{
+  'name': 'Dash',
+  'age': 10,
+  'color': 'blue',
+};
+
+// Destructures using a record pattern:
+var (name, age) = userInfo(json);
+
+/* Equivalent to:
+  var info = userInfo(json);
+  var name = info.$1;
+  var age  = info.$2;
+*/
+```
+
+# Collections
+
+## Lists
+
+```dart
+var list = [1, 2, 3];
+var constantList = const [1, 2, 3];
+// constantList[1] = 1; // This line will cause an error.
+```
+
+## Sets
+
+```dart
+var halogens = {'fluorine', 'chlorine', 'bromine', 'iodine', 'astatine'};
+
+var names = <String>{};
+// Set<String> names = {}; // This works, too.
+// var names = {}; // Creates a map, not a set.
+
+var elements = <String>{};
+elements.add('fluorine');
+elements.addAll(halogens);
+assert(elements.length == 5);
+
+final constantSet = const {
+  'fluorine',
+  'chlorine',
+  'bromine',
+  'iodine',
+  'astatine',
+};
+// constantSet.add('helium'); // This line will cause an error.
+```
+Because map literals came first, {} defaults to the Map type.
+
+## Maps
+
+In Dart, the new keyword is optional.
+
+```dart
+
+var gifts = {
+  // Key:    Value
+  'first': 'partridge',
+  'second': 'turtledoves',
+  'fifth': 'golden rings'
+};
+
+var nobleGases = {
+  2: 'helium',
+  10: 'neon',
+  18: 'argon',
+};
+
+var gifts = Map<String, String>();
+gifts['first'] = 'partridge';
+gifts['second'] = 'turtledoves';
+gifts['fifth'] = 'golden rings';
+
+var nobleGases = Map<int, String>();
+nobleGases[2] = 'helium';
+nobleGases[10] = 'neon';
+nobleGases[18] = 'argon';
+
+var gifts = {'first': 'partridge'};
+gifts['fourth'] = 'calling birds';
+assert(gifts.length == 2);
+
+final constantMap = const {
+  2: 'helium',
+  10: 'neon',
+  18: 'argon',
+};
+
+// constantMap[2] = 'Helium'; // This line will cause an error.
+```
+
+## Operators
+
+`...`
+
+```dart
+var list = [1, 2, 3];
+var list2 = [0, ...list];
+assert(list2.length == 4);
+
+var list2 = [0, ...?list];
+assert(list2.length == 1);
+```
+
+if-case
+
+```dart
+var nav = ['Home', 'Furniture', 'Plants', if (promoActive) 'Outlet'];
+var nav = ['Home', 'Furniture', 'Plants', if (login case 'Manager') 'Inventory'];
+```
+
+for
+
+```dart
+var listOfInts = [1, 2, 3];
+var listOfStrings = ['#0', for (var i in listOfInts) '#$i'];
+assert(listOfStrings[1] == '#1');
+```
+
+# Generics
+
+跟Java差不多;
+
+```dart
+var names = <String>[];
+names.addAll(['Seth', 'Kathy', 'Lars']);
+print(names is List<String>); // true
+
+class Foo<T extends Object> {
+  // Any type provided to Foo for T must be non-nullable.
+}
+
+class Foo<T extends SomeBaseClass> {
+  // Implementation goes here...
+  String toString() => "Instance of 'Foo<$T>'";
+}
+
+class Extender extends SomeBaseClass {...}
+
+var someBaseClassFoo = Foo<SomeBaseClass>();
+var extenderFoo = Foo<Extender>();
+
+T first<T>(List<T> ts) {
+  // Do some initial work or error checking, then...
+  T tmp = ts[0];
+  // Do some additional checking or processing...
+  return tmp;
+}
+```
+
+# Typedefs
+
+跟Delphi差不多;
+
+```dart
+typedef IntList = List<int>;
+IntList il = [1, 2, 3];
+
+typedef ListMapper<X> = Map<X, List<X>>;
+Map<String, List<String>> m1 = {}; // Verbose.
+ListMapper<String> m2 = {}; // Same thing but shorter and clearer.
+```
+
+We recommend using inline function types instead of typedefs for functions, in most situations. However, function typedefs can still be useful:
+
+```dart
+typedef Compare<T> = int Function(T a, T b);
+
+int sort(int a, int b) => a - b;
+
+void main() {
+  assert(sort is Compare<int>); // True!
+}
+```
+
+# Type system
+
+The Dart language is type safe: it uses a combination of static type checking and runtime checks to ensure that a variable’s value always matches the variable’s static type, sometimes referred to as sound typing. 
+
+```dart
+void printInts(List<int> a) => print(a);
+
+void main() {
+  final list = [];
+  list.add(1);
+  list.add('2');
+  printInts(list);
+}
+
+error - The argument type 'List<dynamic>' can't be assigned to the parameter type 'List<int>'. - argument_type_not_assignable
+
+void printInts(List<int> a) => print(a);
+
+void main() {
+  final list = <int>[];
+  list.add(1);
+  list.add(2);
+  printInts(list);
+}
+```
+
+Soundness is about ensuring your program can’t get into certain invalid states. A sound type system means you can never get into a state where an expression evaluates to a value that doesn’t match the expression’s static type. 
+
+Dart’s type system, like the type systems in Java and C#, is sound. 
+
+```dart
+void main() {
+  List<Cat> foo = <dynamic>[Dog()]; // Error
+  List<dynamic> bar = <dynamic>[Dog(), Cat()]; // OK
+}
+
+void main() {
+  List<Animal> animals = [Dog()];
+  List<Cat> cats = animals as List<Cat>;
+}
+
+Map<String, dynamic> arguments = {'argA': 'hello', 'argB': 42};
+var arguments = {'argA': 'hello', 'argB': 42}; // Map<String, Object>
+
+var x = 3; // x is inferred as an int.
+x = 4.0; // error
+
+num y = 3; // A num can be double or int.
+y = 4.0; // correct
+
+// Inferred as if you wrote <int>[].
+List<int> listOfInt = [];
+
+// Inferred as if you wrote <double>[3.0].
+var listOfDouble = [3.0];
+
+// Inferred as Iterable<int>.
+var ints = listOfDouble.map((x) => x.toInt());
+```
+
+继承的权限、赋值跟Java差不多;
