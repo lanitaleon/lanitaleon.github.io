@@ -21,7 +21,7 @@
 title: meaningless
 email: somnusfor@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  三分钟热度有三分钟收获.
+  If you fall into a pit, don't dig.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://lanitaleon.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: IrisFor
