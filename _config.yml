@@ -21,7 +21,7 @@
 title: meaningless
 email: somnusfor@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  if you find yourself in a hole, stop digging.
+  If you find yourself in a hole, stop digging.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://lanitaleon.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: IrisFor
@@ -54,7 +54,7 @@ plugins:
 #   - vendor/ruby/
 
 texture:
-  title: 三分钟热度，有三分钟收获
+  title: If you find yourself in a hole, stop digging.
   tagline: Developer. meaningless
   date_format: "%b %-d, %Y"
 
