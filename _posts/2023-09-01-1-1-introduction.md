@@ -59,7 +59,7 @@ For every successful general-purpose language, there are a thousand successful n
 
 每一种成功的通用语言，都有上千种成功的利基语言。我们过去称它们为“小语言”，但行话经济的膨胀导致了“领域特定语言”的名称。这些是为特定任务量身定制的 pidgins。考虑应用程序脚本语言、模板引擎、标记格式和配置文件。
 
-![小语言](./crafting-interpreters/1-1-1-little-languages.png)
+![小语言](/crafting-interpreters/1-1-1-little-languages.png)
 
 > A random selection of some little languages you might run into.
 >
@@ -153,7 +153,7 @@ Many other language books and language implementations use tools like Lex and Ya
 >
 > Yacc 并不是同类产品中的第一个，这就是为什么它被命名为“Yacc”——Yet Another Compiler-Compiler。 后来的一个类似工具是 [Bison](https://en.wikipedia.org/wiki/GNU_Bison)，它的名字是 Yacc 发音的双关语，就像“yak”一样。
 >
-> ![yak](./crafting-interpreters/1-2-1-yak.png)
+> ![yak](/crafting-interpreters/1-2-1-yak.png)
 >
 > If you find all of these little self-references and puns charming and fun, you’ll fit right in here. If not, well, maybe the language nerd sense of humor is an acquired taste.
 >
@@ -286,7 +286,7 @@ While academic language folks sometimes look down on object-oriented languages, 
 > You can’t compile your compiler using itself yet, but if you have another compiler for your language written in some other language, you use that one to compile your compiler once. Now you can use the compiled version of your own compiler to compile future versions of itself, and you can discard the original one compiled from the other compiler. This is called bootstrapping, from the image of pulling yourself up by your own bootstraps.
 >
 > 您还不能使用编译器本身来编译您的编译器，但是如果您有另一个用其他语言编写的语言的编译器，则可以使用该编译器来编译您的编译器一次。 现在，您可以使用自己的编译器的编译版本来编译其自身的未来版本，并且可以丢弃从其他编译器编译的原始版本。 这被称为“自力更生”，意为通过自己的引导来提升自己。
-> ![bootstrap](./crafting-interpreters/1-3-1-bootstrap.png)
+> ![bootstrap](/crafting-interpreters/1-3-1-bootstrap.png)
 
 And, finally, Java is hugely popular. That means there’s a good chance you already know it, so there’s less for you to learn to get going in the book. If you aren’t that familiar with Java, don’t freak out. I try to stick to a fairly minimal subset of it. I use the diamond operator from Java 7 to make things a little more terse, but that’s about it as far as “advanced” features go. If you know another object-oriented language, like C# or C++, you can muddle through.
 
