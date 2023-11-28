@@ -330,7 +330,7 @@ We’ll even try our hand at benchmarking and optimization. By the end, we’ll 
 
 我们甚至会尝试进行基准测试和优化。 到最后，我们将为我们的语言提供一个强大、准确、快速的解释器，它可与其他专业水准的解释器比肩。 对于一本书和几千行代码来说已经不错了。
 
-### Challenges
+## Challenges
 
 1) There are at least six domain-specific languages used in the [little system I cobbled together](https://github.com/munificent/craftinginterpreters) to write and publish this book. What are they?
 
@@ -344,7 +344,7 @@ We’ll even try our hand at benchmarking and optimization. By the end, we’ll 
 
 3. 对 C 执行同样的操作。为了进行一些指针练习，请定义一个堆分配字符串的双向链表。 编写函数进行增删改查。 测试它们。
 
-### Design Note: What's in a name?
+## Design Note: What's in a name?
 
 One of the hardest challenges in writing this book was coming up with a name for the language it implements. I went through pages of candidates before I found one that worked. As you’ll discover on the first day you start building your own language, naming is deviously hard. A good name satisfies a few criteria:
 
