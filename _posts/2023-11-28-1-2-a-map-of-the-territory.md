@@ -467,7 +467,7 @@ But, for now, it’s time for our own journey to begin. Tighten your bootlaces, 
 >
 > 从今以后，我保证淡化整个山这个隐喻的说法。
 
-### Challenges
+## Challenges
 
 1) Pick an open source implementation of a language you like. Download the source code and poke around in it. Try to find the code that implements the scanner and parser. Are they handwritten, or generated using tools like Lex and Yacc? (`.l` or `.y` files usually imply the latter.)
 
