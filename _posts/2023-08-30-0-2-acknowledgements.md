@@ -4,7 +4,7 @@ https://craftinginterpreters.com/acknowledgements.html
 
 When the first copy of “Game Programming Patterns” sold, I guess I had the right to call myself an author. But it took time to feel comfortable with that label. Thank you to everyone who bought copies of my first book, and to the publishers and translators who brought it to other languages. You gave me the confidence to believe I could tackle a project of this scope. Well, that, and massively underestimating what I was getting myself into, but that’s on me.
 
-当《Game Programming Patterns》第一版卖出时，我想我有权利称自己为作家。但是我需要时间来适应这个标签。感谢每一个购买我第一本书的人，感谢把它带到其他语言的出版商和译者。你给了我信心，让我相信我可以解决这种规模的项目。还有，大大低估了自己的处境，但那是我的错。
+当《Game Programming Patterns》第一版卖出时，我想我有资格称自己为作家。但是我需要时间来适应这个标签。感谢每一个购买我第一本书的人，感谢把它带到其他语言的出版商和译者。你给了我信心，让我相信我可以解决这种规模的项目。还有，大大低估了自己的处境，但那是我的错。
 
 A fear particular to technical writing is getting stuff wrong. Tests and static analysis only get you so far. Once the code and prose is in ink on paper, there’s no fixing it. I am deeply grateful to the many people who filed issues and pull requests on the open source repo for the book. Special thanks go to cm1776, who filed 145 tactfully worded issues pointing out hundreds of code errors, typos, and unclear sentences. The book is more accurate and readable because of you all.
 
