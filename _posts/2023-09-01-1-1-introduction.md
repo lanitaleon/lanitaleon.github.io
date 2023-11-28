@@ -332,15 +332,15 @@ We’ll even try our hand at benchmarking and optimization. By the end, we’ll 
 
 ### Challenges
 
-1. There are at least six domain-specific languages used in the [little system I cobbled together](https://github.com/munificent/craftinginterpreters) to write and publish this book. What are they?
+1) There are at least six domain-specific languages used in the [little system I cobbled together](https://github.com/munificent/craftinginterpreters) to write and publish this book. What are they?
 
 1. 在我拼凑起来编写和出版这本书的小系统中，至少使用了六种特定于领域的语言。 这些是什么？
 
-2. Get a “Hello, world!” program written and running in Java. Set up whatever makefiles or IDE projects you need to get it working. If you have a debugger, get comfortable with it and step through your program as it runs.
+2) Get a “Hello, world!” program written and running in Java. Set up whatever makefiles or IDE projects you need to get it working. If you have a debugger, get comfortable with it and step through your program as it runs.
 
 2. 用Java写一个“Hello, world!”程序并运行它。 设置让它正常运行所需的任何 makefile 或 IDE 项目。 如果您有调试器，请熟悉它并在程序运行时逐步执行程序。
 
-3. Do the same thing for C. To get some practice with pointers, define a [doubly linked list](https://en.wikipedia.org/wiki/Doubly_linked_list) of heap-allocated strings. Write functions to insert, find, and delete items from it. Test them.
+3) Do the same thing for C. To get some practice with pointers, define a [doubly linked list](https://en.wikipedia.org/wiki/Doubly_linked_list) of heap-allocated strings. Write functions to insert, find, and delete items from it. Test them.
 
 3. 对 C 执行同样的操作。为了进行一些指针练习，请定义一个堆分配字符串的双向链表。 编写函数进行增删改查。 测试它们。
 
@@ -350,19 +350,19 @@ One of the hardest challenges in writing this book was coming up with a name for
 
 撰写本书时最困难的挑战之一是为其实现的语言命名。 在找到一个有效的候选名之前，我浏览了一页又一页的候选名。 当你某一天开始构建自己的语言时，就会发现命名非常得困难。 一个好的名字需要满足以下几个条件：
 
-1. **It isn’t in use.** You can run into all sorts of trouble, legal and social, if you inadvertently step on someone else’s name.
+1) **It isn’t in use.** You can run into all sorts of trouble, legal and social, if you inadvertently step on someone else’s name.
 
 1. **尚未使用。**如果您无意中用了别人取的名字，您可能会遇到各种麻烦，无论是法律上的还是社会上的。
 
-2. **It’s easy to pronounce.** If things go well, hordes of people will be saying and writing your language’s name. Anything longer than a couple of syllables or a handful of letters will annoy them to no end.
+2) **It’s easy to pronounce.** If things go well, hordes of people will be saying and writing your language’s name. Anything longer than a couple of syllables or a handful of letters will annoy them to no end.
 
 2. **容易发音。** 如果一切顺利，一大群人会说并写下你的语言的名字。 任何超过几个音节或几个字母的东西都会让他们烦恼不已。
 
-3. **It’s distinct enough to search for.** People will Google your language’s name to learn about it, so you want a word that’s rare enough that most results point to your docs. Though, with the amount of AI search engines are packing today, that’s less of an issue. Still, you won’t be doing your users any favors if you name your language “for”.
+3) **It’s distinct enough to search for.** People will Google your language’s name to learn about it, so you want a word that’s rare enough that most results point to your docs. Though, with the amount of AI search engines are packing today, that’s less of an issue. Still, you won’t be doing your users any favors if you name your language “for”.
 
 3. **足够独特，便于搜索。** 人们会通过谷歌搜索您的语言名称来了解它，因此您需要一个足够罕见的单词，以便大多数结果都指向您的文档。 不过，随着如今人工智能搜索引擎的数量不断增加，这已经不是什么问题了。 尽管如此，如果你将你的语言命名为“for”，你不会给你的用户带来任何帮助。
 
-4. **It doesn’t have negative connotations across a number of cultures.** This is hard to be on guard for, but it’s worth considering. The designer of Nimrod ended up renaming his language to “Nim” because too many people remember that Bugs Bunny used “Nimrod” as an insult. (Bugs was using it ironically.)
+4) **It doesn’t have negative connotations across a number of cultures.** This is hard to be on guard for, but it’s worth considering. The designer of Nimrod ended up renaming his language to “Nim” because too many people remember that Bugs Bunny used “Nimrod” as an insult. (Bugs was using it ironically.)
 
 4. **在大多数文化中都没有负面含义。** 这很难保证，但值得考虑。 Nimrod 的设计者最终将他的语言重命名为“Nim”，因为太多人记得兔八哥使用“Nimrod”作为一种侮辱。 （兔八哥讽刺地使用了它。）
 
