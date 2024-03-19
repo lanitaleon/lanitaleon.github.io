@@ -2,7 +2,7 @@
 
 Stripe 产品概念分类：
 
-![Stripe doc structure](./img/stripe-doc-structure.png)
+![Stripe doc structure](/img/stripe-doc-structure.png)
 
 Payment 侧重于即时支付，先创建支付会话，支付完成后生成账单和收据。
 
@@ -31,7 +31,7 @@ Session 的默认过期时间是 24H，该值可在创建 Session 时设置。
 | Action | Session Status | Description |
 | Create Session | open | 可支付状态 |
 | Payment Successful | complete | 支付成功 |
-| None / Expire Session |expired | 未支付或直接取消 |
+| None / Expire Session | expired | 未支付或直接取消 |
 
 
 Create Payment Session Example:
@@ -84,7 +84,7 @@ PAYMENT / SUBSCRIPTION
 
 例如：
 
-![Subscription Mode](./img/stripe-subscription-mode.png)
+![Subscription Mode](/img/stripe-subscription-mode.png)
 
 SETUP 
 
@@ -92,7 +92,7 @@ SETUP
 
 https://docs.stripe.com/payments/save-and-reuse
 
-![Setup Mode](./img/stripe-setup-mode.png)
+![Setup Mode](/img/stripe-setup-mode.png)
 
 ## 1.3 UI Mode
 
@@ -236,7 +236,7 @@ https://docs.stripe.com/payments/checkout/no-cost-orders
 
 Tips: quantity 不能设为 0
 
-![No-Cost Order](./img/stripe-no-cost-order.png)
+![No-Cost Order](/img/stripe-no-cost-order.png)
 
 ## 1.9 Events
 
