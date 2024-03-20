@@ -29,6 +29,7 @@ Session 的状态值范围：open/complete/expired
 Session 的默认过期时间是 24H，该值可在创建 Session 时设置。
 
 | Action | Session Status | Description |
+| -- | -- | -- |
 | Create Session | open | 可支付状态 |
 | Payment Successful | complete | 支付成功 |
 | None / Expire Session | expired | 未支付或直接取消 |
