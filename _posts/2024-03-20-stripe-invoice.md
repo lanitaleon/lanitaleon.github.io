@@ -297,3 +297,38 @@ Exception in thread "main" com.stripe.exception.InvalidRequestException: No such
   at com.stripe.sample.InvoiceServer.main(InvoiceServer.java:119)
 ```
 
+## 2.7 Events & Automations
+
+### Events
+
+Invoice Events
+
+https://docs.stripe.com/api/events/types#event_types-invoice.created
+
+Payment Intent Events
+
+https://docs.stripe.com/api/events/types#event_types-payment_intent.amount_capturable_updated
+
+Price Events
+
+https://docs.stripe.com/api/events/types#event_types-price.created
+
+Product Events
+
+https://docs.stripe.com/api/events/types#event_types-product.created
+
+### Automation
+
+Overdue Invoice 不会自动触发 webhook invoice.overdue 事件。
+
+可在 Stripe Dashboard 配置 Automation，配置指路：
+
+Billing > Automations > Create New automation
+
+1) Step 1
+
+![Automation Step 1](/img/stripe-automation-1.png)
+
+2) Step 2
+
+![Automation Step 2](/img/stripe-automation-2.png)
