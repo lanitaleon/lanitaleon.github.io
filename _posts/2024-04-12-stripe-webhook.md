@@ -140,11 +140,11 @@ https://docs.stripe.com/api/events/object
 
 除此之外，还需要注意：
 
-1. 同一个类型的对象，在不同的 event 中，对象信息可能存在不同程度的缺失。
+#1 同一个类型的对象，在不同的 event 中，对象信息可能存在不同程度的缺失。
 
 比如 invoice 状态为 draft 时，回调 event data 中必然不会包含 invoice number，invoice url 等信息。
 
-2. 不同的对象，在不同的 event 中，可能代表了相同的业务含义。
+#2 不同的对象，在不同的 event 中，可能代表了相同的业务含义。
 
 比如在业务中，如果每一条 Checkout Session 都开启了 Invoice Creation，那么 checkout.session.complete 和 invoice.paid 对系统来说都意味着账单被支付了。
 
