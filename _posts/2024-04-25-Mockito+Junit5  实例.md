@@ -1,4 +1,4 @@
-# dependency
+# Dependency
 
 spring-boot-starter-test 2.6.6
 
@@ -16,7 +16,7 @@ mockito-junit-jupiter 4.0.0
 
 本节 demo 用的 spring-boot 版本比较古早，如果是新版 mockito-core 就不需要额外引入 mockito-inline。
 
-# overview
+# Overview
 
 先看一个简单的单元测试类需要哪些基本元素。
 
@@ -86,9 +86,9 @@ class UserTests {
 
 比对预期输出，常用方法：`assertEquals`，`assertTrue`，`assertThrows`，`assertDoesNotThrow` 等；
 
-# 常用方法
+# Functions
 
-1. any
+## any
 
 模拟各种参数，`mockito` 提供了非常多的实现，在此不一一罗列。
 
@@ -124,7 +124,7 @@ void updateAddress() {
 
 ```
 
-2. when + answer
+## when + answer
 
 `thenReturn` 倾向于返回一个确定的值，比如 `1L`, `"A"`;
 
@@ -176,7 +176,7 @@ class OrderTests {
 }
 ```
 
-3. when + throw
+## when + throw
 
 模拟抛出异常；
 
@@ -189,7 +189,7 @@ void createUser() {
 }
 ```
 
-4. mockStatic + when
+## mockStatic + when
 
 模拟静态函数；
 
@@ -212,7 +212,7 @@ void createUser() {
 }
 ```
 
-5. doNothing + when
+## doNothing + when
 
 针对 `void` 方法，没有返回值的时候，需要用 `doNothing()` 进行模拟。
 
@@ -225,7 +225,7 @@ void batchInsert() {
 }
 ```
 
-6. verify
+## verify
 
 校验方法是否被调用，调用次数和顺序是否符合预期。
 
@@ -279,7 +279,7 @@ void testMyList() {
 }
 ```
 
-7. stubbing a spy
+## stubbing a spy
 
 和 `mock()` 不同的是，`spy()` 的对象是真实的对象实例，方法也会直接调用真实对象的方法；
 
@@ -314,7 +314,7 @@ void givenASpy_whenStubbingTheBehaviour_thenCorrect() {
 }
 ```
 
-8. Assertions
+## Assertions
 
 junit 提供了非常多的方法，在此不一一罗列。
 
