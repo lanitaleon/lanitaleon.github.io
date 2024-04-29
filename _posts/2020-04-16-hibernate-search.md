@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hibernate-Search无法生成子类索引
+title: Hibernate-Search 无法生成子类索引
 ---
 
 
