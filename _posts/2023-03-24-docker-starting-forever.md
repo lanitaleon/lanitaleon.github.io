@@ -1,3 +1,8 @@
+---
+layout: post
+title: Docker Starting Forever
+---
+
 记录一下Windows10安装Docker踩的坑，一是装不上，二是打不开。
 
 #### 一、WSL升级为WSL2
