@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Guava(5) bloom filter
+title: Guava(5) Bloom Filter
 ---
 
 #### 1.简介
