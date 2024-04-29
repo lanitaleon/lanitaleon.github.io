@@ -1,3 +1,8 @@
+---
+layout: post
+title: [CI][PART 1] 3 The Lox Language
+---
+
 原文
 
 https://craftinginterpreters.com/the-lox-language.html
