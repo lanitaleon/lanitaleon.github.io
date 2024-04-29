@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Guava(2) immutable collections
+title: Guava(2) Immutable Collections
 ---
 
 ### 1.Immutable Collections
