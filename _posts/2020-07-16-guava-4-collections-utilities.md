@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Guava(4) collection utilities
+title: Guava(4) Collection Utilities
 ---
 
 ### 3.Collection Utilities
