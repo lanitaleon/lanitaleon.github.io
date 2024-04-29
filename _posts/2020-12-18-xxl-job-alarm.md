@@ -1,6 +1,6 @@
 ---
 layout: post
-title: xxl-job中的报警通知
+title: XXL-JOB 中的报警通知
 ---
 
 1.执行器需要远程更新任务cron，且每个OEM拥有自己的task
