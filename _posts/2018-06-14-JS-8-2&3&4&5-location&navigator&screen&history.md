@@ -1,3 +1,8 @@
+---
+layout: post
+title: JS 8.2-8.5 location&navigator&screen&history
+---
+
 # 8.2 location对象
 
 location提供与当前窗口加载的文档有关的信息&一些导航功能;
