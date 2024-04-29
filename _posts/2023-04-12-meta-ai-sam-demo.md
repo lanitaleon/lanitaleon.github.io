@@ -1,3 +1,8 @@
+---
+layout: post
+title: Meta AI SAM Demo 配置安装
+---
+
 #### 1.简单介绍
 
 Meta发布首个基础图像分割模型SAM（SegmentAnythingModel）。
