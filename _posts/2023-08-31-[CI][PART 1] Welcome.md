@@ -1,3 +1,8 @@
+---
+layout: post
+title: CI > Welcome
+---
+
 原文：
 
 https://craftinginterpreters.com/welcome.html
