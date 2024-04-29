@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CI | PART I | 3 The Lox Language
+title: CI| 3 The Lox Language
 ---
 
 原文
