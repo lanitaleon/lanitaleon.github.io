@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Guava(3) collection types
+title: Guava(3) Collection Types
 ---
 
 ### 2.New Collection Types
