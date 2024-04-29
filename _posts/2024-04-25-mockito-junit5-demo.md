@@ -1,6 +1,6 @@
 ---
 layout: post
-title: SpringBoot + Mockito + JUnit5 Demo
+title: Mockito + JUnit5 的简单应用
 ---
 
 # Dependency
