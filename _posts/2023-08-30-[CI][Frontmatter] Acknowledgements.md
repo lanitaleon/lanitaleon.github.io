@@ -1,3 +1,8 @@
+---
+layout: post
+title: CI > Acknowledgements
+---
+
 原文：
 
 https://craftinginterpreters.com/acknowledgements.html
