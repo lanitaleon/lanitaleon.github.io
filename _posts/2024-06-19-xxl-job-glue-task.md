@@ -1,6 +1,6 @@
 ---
 layout: post
-title: xxl-job > GLUE Task 是如何执行的？
+title: XXL-JOB > GLUE Task Execution
 ---
 
 # Trigger
