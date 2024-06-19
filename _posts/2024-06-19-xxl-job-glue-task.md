@@ -11,7 +11,7 @@ title: XXL-JOB > GLUE Task Execution
 | ------ | ------- |
 | XxlJobServiceImpl#trigger | |
 | JobTriggerPoolHelper#trigger | |
-| JobTriggerPoolHelper#addTrigger | 先将请求中指定的任务加入 trigger 队列 |
+| JobTriggerPoolHelper#addTrigger | 将请求中指定的任务加入 trigger 队列 |
 | XxlJobTrigger#trigger | |
 | XxlJobTrigger#processTrigger | 执行 trigger |
 | XxlJobTrigger#runExecutor | |
@@ -19,9 +19,9 @@ title: XXL-JOB > GLUE Task Execution
 | ExecutorBiz#run | |
 | ExecutorBizImpl#run | 根据 GLUE 类型执行不同任务，注意到 TriggerParam 和 ScriptJobHandler |
 | ScriptJobHandler#execute | 不同任务类型各自实现了 IJobHandler |
-| ScriptUtil#markScriptFile | 先将脚本内容在 executor 所在机器生成脚本文件 |
+| ScriptUtil#markScriptFile | 将脚本内容在 executor 所在机器生成脚本文件 |
 | ScriptUtil#execToFile | 执行脚本文件 |
-| Runtime.getRuntime().exec | JDK 库自带方法，执行 command |
+| Runtime.getRuntime().exec | JDK 库自带的方法，执行 command |
 
 # Conclusion
 
