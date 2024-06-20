@@ -3,6 +3,8 @@ layout: post
 title: XXL-JOB > GLUE Task Execution
 ---
 
+xxl-job-core v2.4.1
+
 # Trigger
 
 从 /jobinfo/trigger?id= 接口入手查看源码。
