@@ -1,6 +1,6 @@
 ---
 layout: post
-title: xxl-job > Task start and stop
+title: XXL-JOB > Task start and stop
 ---
 
 如何知道 Task 的状态是否停止？
