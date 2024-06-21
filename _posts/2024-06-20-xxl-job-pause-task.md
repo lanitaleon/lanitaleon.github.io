@@ -81,7 +81,7 @@ public void init() throws Exception {
 XxlJobDynamicScheduler#init
 ```
 
-查看发现，job-admin 注册该 bean 时，仅启动动态扫描注册器和异常报警的线程，和 2.4.1 的架构大不相同。
+查看发现，`job-admin` 注册该 bean 时，仅启动动态扫描注册器和异常报警的线程，和 2.4.1 的架构大不相同。
 
 ```java
 public void init() throws Exception {
@@ -101,7 +101,7 @@ public void init() throws Exception {
 }
 ```
 
-任务活动周期的管理全部交由 quartzScheduler 管理。
+任务活动周期的管理全部交由 `quartzScheduler` 管理。
 
 ```xml
 <bean id="quartzScheduler" lazy-init="false" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
@@ -120,4 +120,179 @@ public void init() throws Exception {
 </bean>
 ```
 
-也就是完全依赖 quartz 框架，不能通过数据库刷新数据重载任务。
+也就是完全依赖 `quartz` 框架的任务调度管理。
+
+## quartz
+
+查看 `quartz` 的实现，注意到表 `xxl_job_qrtz_triggers.trigger_state`;
+
+暂停 task 是不是控制这个值就可以了呢？
+
+顺着 `/jobinfo/pageList` 继续看：
+
+```java
+StdScheduler#getTriggerState
+QuartzScheduler#getTriggerState
+JobStoreSupport#getTriggerState
+StdJDBCDelegate#selectTriggerState
+```
+
+发现确实是通过查询数据库的值来确定任务状态。
+
+以及它在 `quartz` 中的转换关系：
+
+```java
+String ts = getDelegate().selectTriggerState(conn, key);
+if (ts == null) {
+    return TriggerState.NONE;
+}
+if (ts.equals(STATE_DELETED)) {
+    return TriggerState.NONE;
+}
+if (ts.equals(STATE_COMPLETE)) {
+    return TriggerState.COMPLETE;
+}
+if (ts.equals(STATE_PAUSED)) {
+    return TriggerState.PAUSED;
+}
+if (ts.equals(STATE_PAUSED_BLOCKED)) {
+    return TriggerState.PAUSED;
+}
+if (ts.equals(STATE_ERROR)) {
+    return TriggerState.ERROR;
+}
+if (ts.equals(STATE_BLOCKED)) {
+    return TriggerState.BLOCKED;
+}
+return TriggerState.NORMAL; 
+```
+
+那么暂停一个任务只需要更新这个值就可以吗？
+
+直接试验一下，
+
+修改字段 `trigger_state`，将 `WAITING` 为 `PAUSED`，任务停止了。
+
+但是重新启动不等同于把 PAUSED 再恢复 WAITING。
+
+查看 `/jobinfo/pause` 的实现
+
+```java
+StdScheduler#pauseTrigger
+QuartzScheduler#pauseTrigger
+JobStoreSupport#pauseTrigger
+```
+
+在第三步中，更新了数据库的字段值。
+
+```java
+// JobStoreSupport#pauseTrigger
+String oldState = getDelegate().selectTriggerState(conn,
+        triggerKey);
+if (oldState.equals(STATE_WAITING)
+        || oldState.equals(STATE_ACQUIRED)) {
+    getDelegate().updateTriggerState(conn, triggerKey,
+            STATE_PAUSED);
+} else if (oldState.equals(STATE_BLOCKED)) {
+    getDelegate().updateTriggerState(conn, triggerKey,
+            STATE_PAUSED_BLOCKED);
+} 
+```
+
+第二步中，除了调用更新值的方法，还通知了两个线程。
+
+```java
+// QuartzScheduler#pauseTrigger
+public void pauseTrigger(TriggerKey triggerKey) throws SchedulerException {
+    validateState();
+
+    resources.getJobStore().pauseTrigger(triggerKey);
+    notifySchedulerThread(0L);
+    notifySchedulerListenersPausedTrigger(triggerKey);
+}
+```
+
+查看 `notifySchedulerListenersPausedTrigger`，这个方法，啥也没做。
+
+```java
+// SchedulerListener#triggerPaused
+// SchedulerListenerSupport#triggerPaused
+
+public void triggerPaused(TriggerKey triggerKey) {
+}
+```
+
+查看 `notifySchedulerThread`，注意到 `QuartzSchedulerThread`。
+
+```java
+QuartzScheduler#notifySchedulerThread
+SchedulerSignalerImpl#signalSchedulingChange
+QuartzSchedulerThread#signalSchedulingChange
+```
+
+`QuartzSchedulerThread` 是一个触发任务执行的线程。
+
+```java
+// QuartzSchedulerThread#signalSchedulingChange
+/**
+ * <p>
+ * Signals the main processing loop that a change in scheduling has been
+ * made - in order to interrupt any sleeping that may be occuring while
+ * waiting for the fire time to arrive.
+ * </p>
+ *
+ * @param candidateNewNextFireTime the time (in millis) when the newly scheduled trigger
+ * will fire.  If this method is being called do to some other even (rather
+ * than scheduling a trigger), the caller should pass zero (0).
+ */
+public void signalSchedulingChange(long candidateNewNextFireTime) {
+    synchronized(sigLock) {
+        signaled = true;
+        signaledNextFireTime = candidateNewNextFireTime;
+        sigLock.notifyAll();
+    }
+}
+```
+
+`signaledNextFireTime` 设为 0，代表该触发器不再触发。
+
+试想一个运行中的任务，此时它的下次执行时间是明天 1 点钟。
+
+现在我们把 `trigger_state` 设为 `PAUSED`，却没有管任何正在运行的 `QuartzSchedulerThread`。
+
+那么下次执行的时候，该触发器会执行吗？
+
+直接查看 `QuartzSchedulerThread.run` 的实现。
+
+```java
+QuartzSchedulerThread#run
+QuartzSchedulerThread#isCandidateNewTimeEarlierWithinReason
+JobStoreSupport#triggerFired
+```
+
+注意到 `triggerFired`，查看实现。
+
+```java
+protected TriggerFiredBundle triggerFired(Connection conn,
+        OperableTrigger trigger)
+    throws JobPersistenceException {
+    ... ...
+
+    // Make sure trigger wasn't deleted, paused, or completed...
+    try { // if trigger was deleted, state will be STATE_DELETED
+        String state = getDelegate().selectTriggerState(conn,
+                trigger.getKey());
+        if (!state.equals(STATE_ACQUIRED)) {
+            return null;
+        }
+    } catch (SQLException e) {
+        throw new JobPersistenceException("Couldn't select trigger state: "
+                + e.getMessage(), e);
+    }
+    ... ...
+}
+```
+
+到这里可以安心了，执行前会根据数据库中 `trigger_state` 值拦截触发器。
+
+所以 v1.8.2 可以通过修改 `xxl_job_qrtz_triggers.trigger_state` 的值批量暂停 task。
