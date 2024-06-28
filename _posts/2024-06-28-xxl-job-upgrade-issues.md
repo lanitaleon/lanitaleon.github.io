@@ -359,7 +359,7 @@ public class MyJobHandler {
 
 ## 4. Start and Stop tasks in batches
 
-https://lanitaleon.github.io/2024/06/20/xxl-job-pause-task.html
+[XXL-JOB > Task start and stop](https://lanitaleon.github.io/2024/06/20/xxl-job-pause-task.html)
 
 v2.4.1 批量启停任务只需要变更 `xxl_job_info.trigger_status`。
 
@@ -367,4 +367,4 @@ v1.8.2 批量暂停任务只需要变更 `xxl_job_qrtz_triggers.trigger_state`�
 
 ## 5. GLUE Task
 
-https://lanitaleon.github.io/2024/06/19/xxl-job-glue-task.html
+[XXL-JOB > GLUE Task Execution](https://lanitaleon.github.io/2024/06/19/xxl-job-glue-task.html)
