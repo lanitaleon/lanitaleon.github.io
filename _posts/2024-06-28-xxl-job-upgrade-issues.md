@@ -321,12 +321,14 @@ from
 
 ### 3.1 xxl-job config
 
+特别注意 `executor` 由 `XxlJobExecutor` 变为 `XxlJobSpringExecutor`，否则扫不到 `@XxlJob`。
+
 ```java
 // old
 XxlJobExecutor.setAppName();
 
 // new 
-XxlJobExecutor.setAppname();
+XxlJobSpringExecutor.setAppname();
 ```
 
 ### 3.2 Job handler
@@ -351,8 +353,10 @@ v2.4.1
 @Component
 public class MyJobHandler {
     @XxlJob(value = "xxx")
-    public ReturnT<String> execute(String... params) {
+    public void execute() {
+        XxlJobHelper.log("log info");
         // ...
+        XxlJobHelper.handleSuccess();
     }
 }
 ```
