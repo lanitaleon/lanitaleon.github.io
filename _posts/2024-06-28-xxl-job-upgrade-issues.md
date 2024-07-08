@@ -21,7 +21,7 @@ title: XXL-JOB > Version upgrade (1.8.2 >> 2.4.1)
 
 ## 2. 迁移所有数据
 
-包括 task，glue 脚本，log 等，参考脚本如下。
+包括 task，glue 脚本，log 等，参考脚本可移步 Issues 2。
 
 ## 3. 批量替换 GLUE 类型的任务
 
