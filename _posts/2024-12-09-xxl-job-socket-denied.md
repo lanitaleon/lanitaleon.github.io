@@ -164,8 +164,12 @@ VPN 开启后，ping 10.200.0.10 是不通的，返回“一般故障”，关�
 # ref
 
 https://support.veryant.com/phpkb/article.php?id=197#:~:text=SocketException%3A%20Permission%20denied%3A%20connect%22%20exception%20message%20may%20happen%20when,in%20Java%207%20and%20above.
+
 https://blog.csdn.net/huangzhen1991/article/details/81460791
+
 https://freyagrace.cn/index.php/archives/296/
+
 https://www.cnblogs.com/vincentmu/p/15641757.html
+
 https://zhuanlan.zhihu.com/p/71536075
 
