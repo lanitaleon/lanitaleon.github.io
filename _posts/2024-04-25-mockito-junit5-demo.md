@@ -5,21 +5,17 @@ title: Mockito + JUnit5 的简单应用
 
 # Dependency
 
-spring-boot-starter-test 2.6.6
+spring-boot-starter-test 3.2.4
 
 其中内置了：
 
 ```shell
-junit-jupiter 5.8.2
-mockito-core 4.0.0
-mockito-junit-jupiter 4.0.0
+junit-jupiter 5.10.2
+mockito-core 5.7.0
+mockito-junit-jupiter 5.7.0
 ```
 
-除此之外，还需要引入 mockito-inline 4.0.0，用于模拟静态方法；
-
-注：
-
-本节 demo 用的 spring-boot 版本比较古早，如果是新版 mockito-core 就不需要额外引入 mockito-inline。
+除此之外，如果使用的 spring-boot 版本比较早，比如 `2.x`，还需要引入 `mockito-inline 4.0.0`用于模拟静态方法。
 
 # Overview
 
@@ -317,6 +313,25 @@ void givenASpy_whenStubbingTheBehaviour_thenCorrect() {
     doReturn(100).when(spyList).size();
     assertThat(spyList).hasSize(100);
 }
+```
+
+## ArgumentMatchers
+
+泛型参数
+
+```java
+when(namedParameterJdbcTemplate.query(anyString(), any(MapSqlParameterSource.class),
+        ArgumentMatchers.<RowMapper<Pair<Long, Long>>>any())).thenReturn(null);
+```
+
+## thenReturn + thenThrow
+
+第一次调用抛出异常，第二次调用时返回指定内容，只需要链式调用即可。
+
+```java
+when(mockedService.create(any(CreateParams.class)))
+    .thenThrow(SomeException.class)
+    .thenReturn(null);
 ```
 
 ## Assertions
